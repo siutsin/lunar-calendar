@@ -122,6 +122,11 @@ def parse_hko(pageurl):
           a string contains all posts'''
 
     print('grabbing and parsing %s' % pageurl)
+    '''
+    for Windows:
+        default ca file should be in 'C:\\Program Files\\Common Files\\ssl/cert.pem'
+        Install package 'certifi', copy cacert.pem and rename to cert.pem to the location above.
+    '''
     with urllib.request.urlopen(pageurl) as f:
         html = f.read()
         lines = html.decode('big5').split('\n')
@@ -204,7 +209,7 @@ def gen_cal(start, end, fp):
                        (dt + oneday).strftime('%Y%m%d'), summary)
         lines.append(line)
     lines.append(ICAL_END)
-    outputf = open(fp, 'w')
+    outputf = open(fp, 'w', encoding='utf-8')
     outputf.write('\n'.join(lines))
     outputf.close()
     print('iCal lunar calendar from %s to %s saved to %s' % (start, end, fp))

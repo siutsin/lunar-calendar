@@ -39,9 +39,9 @@ ICAL_HEAD = ('BEGIN:VCALENDAR\n'
              'VERSION:2.0\n'
              'CALSCALE:GREGORIAN\n'
              'METHOD:PUBLISH\n'
-             'X-WR-CALNAME:农历\n'
+             'X-WR-CALNAME:農曆\n'
              'X-WR-TIMEZONE:Asia/Shanghai\n'
-             'X-WR-CALDESC:中国农历1901-2100, 包括节气. 数据来自香港天文台')
+             'X-WR-CALDESC:中國農曆1901-2100, 包括節氣. 數據來自香港天文臺')
 
 ICAL_SEC = ('BEGIN:VEVENT\n'
             'DTSTAMP:%s\n'
@@ -72,8 +72,8 @@ CN_MON = {'正月': 1, '二月': 2, '三月': 3, '四月': 4,
 GAN = ('庚', '辛', '壬', '癸', '甲', '乙', '丙', '丁', '戊', '己')
 ZHI = ('申', '酉', '戌', '亥', '子', '丑',
        '寅', '卯', '辰', '巳', '午', '未')
-SX = ('猴', '鸡', '狗', '猪', '鼠', '牛',
-      '虎', '兔', '龙', '蛇', '马', '羊')
+SX = ('猴', '雞', '狗', '豬', '鼠', '牛',
+      '虎', '兔', '龍', '蛇', '馬', '羊')
 
 
 def initdb():
@@ -278,10 +278,10 @@ def post_process():
 def update_holiday():
     ''' write chinese traditional holiday to db
 
-    腊八节(腊月初八)     除夕(腊月的最后一天)     春节(一月一日)
-    元宵节(一月十五日)   寒食节(清明的前一天)     端午节(五月初五)
-    七夕节(七月初七)     中元节(七月十五日)       中秋节(八月十五日)
-    重阳节(九月九日)     下元节(十月十五日)
+    臘八節(臘月初八)     除夕(臘月的最後一天)     春節(一月一日)
+    元宵節(一月十五日)   寒食節(清明的前一天)     端午節(五月初五)
+    七夕節(七月初七)     中元節(七月十五日)       中秋節(八月十五日)
+    重陽節(九月九日)     下元節(十月十五日)
 
     '''
     sql = 'select * from ical order by date'
@@ -301,9 +301,9 @@ def update_holiday():
             continue
 
         if m == 12 and d == 8:
-            args.append((r['id'], '腊八'))
+            args.append((r['id'], '臘八'))
         elif m == 1 and d == 1:
-            args.append((r['id'], '春节'))
+            args.append((r['id'], '春節'))
             args.append((previd, '除夕'))
         elif m == 1 and d == 15:
             args.append((r['id'], '元宵'))
@@ -316,7 +316,7 @@ def update_holiday():
         elif m == 8 and d == 15:
             args.append((r['id'], '中秋'))
         elif m == 9 and d == 9:
-            args.append((r['id'], '重阳'))
+            args.append((r['id'], '重陽'))
         elif m == 10 and d == 15:
             args.append((r['id'], '下元'))
 
@@ -339,7 +339,7 @@ def ganzhi(lyear):
     Args:
         lyear: four digit lyear, either integer or string
     Return:
-        a string, e.g. 庚辰[龙]年
+        a string, e.g. 庚辰[龍]年
     '''
 
     g = GAN[int(str(lyear)[-1])]

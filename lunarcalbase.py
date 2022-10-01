@@ -222,19 +222,19 @@ def mark_lunarcal_day(clcmonth):
 def mark_holiday(clcdays):
     ''' mark Chinese Traditional Holiday
 
-    腊八节(腊月初八)     除夕(腊月的最后一天)     春节(一月一日)
-    元宵节(一月十五日)   寒食节(清明的前一天)     端午节(五月初五)
-    七夕节(七月初七)     中元节(七月十五日)       中秋节(八月十五日)
-    重阳节(九月九日)     下元节(十月十五日)
+    臘八節(臘月初八)     除夕(臘月的最後一天)     春節(一月一日)
+    元宵節(一月十五日)   寒食節(清明的前一天)     端午節(五月初五)
+    七夕節(七月初七)     中元節(七月十五日)       中秋節(八月十五日)
+    重陽節(九月九日)     下元節(十月十五日)
 
     '''
 
     for i in range(len(clcdays)):
         m, d = clcdays[i]['month'], clcdays[i]['day']
         if m == 12 and d == 8:
-            clcdays[i]['holiday'] = '腊八'
+            clcdays[i]['holiday'] = '臘八'
         elif m == 1 and d == 1:
-            clcdays[i]['holiday'] = '春节'
+            clcdays[i]['holiday'] = '春節'
             clcdays[i - 1]['holiday'] = '除夕'
         elif m == 1 and d == 15:
             clcdays[i]['holiday'] = '元宵'
@@ -247,7 +247,7 @@ def mark_holiday(clcdays):
         elif m == 8 and d == 15:
             clcdays[i]['holiday'] = '中秋'
         elif m == 9 and d == 9:
-            clcdays[i]['holiday'] = '重阳'
+            clcdays[i]['holiday'] = '重陽'
         elif m == 10 and d == 15:
             clcdays[i]['holiday'] = '下元'
 

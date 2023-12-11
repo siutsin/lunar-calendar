@@ -1,0 +1,13 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+numexpr = "==2.8.8"
+numpy = "==1.26.2"
+
+[dev-packages]
+
+[requires]
+python_version = "3.12"
